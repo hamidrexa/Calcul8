@@ -1,0 +1,826 @@
+/* Includes ------------------------------------------------------------------*/
+#include "stm32f0xx_hal.h"
+#include "string.h"
+
+#define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
+/* Private variables ---------------------------------------------------------*/
+TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim14;
+TIM_HandleTypeDef htim17;
+
+UART_HandleTypeDef huart1;
+uint8_t aTxBuffer1[] = "RXNE wake-up successful";
+
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+void Error_Handler(void);
+static void MX_GPIO_Init(void);
+//static void MX_TIM1_Init(void);
+//static void MX_TIM3_Init(void);
+//static void MX_TIM14_Init(void);
+//static void MX_TIM17_Init(void);
+int getHexVal(char c);
+void send(char* hex);
+
+
+int main(void)
+{
+	HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+
+	
+	
+__HAL_RCC_USART1_CONFIG(RCC_USART1CLKSOURCE_HSI);
+RCC->APB2ENR |= RCC_APB2ENR_TIM16EN; /* (1) */
+RCC->AHBENR |= RCC_AHBENR_GPIOAEN; /* (2) */
+RCC->AHBENR |= RCC_AHBENR_GPIOBEN; /* (2) */
+RCC->APB2ENR |= RCC_APB2ENR_TIM1EN; /* (1) */
+
+GPIOB->MODER = GPIO_MODER_MODER0_0;
+
+
+TIM16->PSC |=10; /* (1) */
+TIM16->ARR = 120000- 1; /* (2) */
+TIM16->CCR1 = 120000- 1; /* (3) */
+TIM16->CCMR1 |= TIM_CCMR1_OC1M_0 | TIM_CCMR1_OC1M_1; /* (4) */
+TIM16->CCER |= TIM_CCER_CC1E; /* (5)*/
+TIM16->BDTR |= TIM_BDTR_MOE; /* (6) */
+TIM16->CR1 |= TIM_CR1_CEN; /* (7) */
+
+TIM1->PSC |=0; /* (1) */
+TIM1->ARR = 12000- 1; /* (2) */
+TIM1->CCR1 = 12000- 1; /* (3) */
+TIM1->CCMR1 |= TIM_CCMR1_OC1M_0 | TIM_CCMR1_OC1M_1; /* (4) */
+TIM1->CCER |= TIM_CCER_CC1E; /* (5)*/
+TIM1->BDTR |= TIM_BDTR_MOE; /* (6) */
+TIM1->CR1 |= TIM_CR1_CEN; /* (7) */
+
+
+
+int i;
+char buf8[50];
+char buf5[50];
+char buf[50];
+char hex2[400];
+uint32_t c_s = (GPIOA->IDR)&0xaf3;
+uint32_t n_s = 0;
+int* k;
+k = (int*) malloc (20);
+int ac=50000;
+float co_time=0;
+double result,x1,x2,x11,x22=0;
+int flag=1;
+char op=0;
+int point1=0;
+int point2=0;
+int state=1;
+n_s=0x00;
+
+k[5]=0;//because start whit 5 :))
+huart1.Instance = USART1;
+HAL_UART_DeInit(&huart1); 
+huart1.Init.BaudRate   = 115200;;
+huart1.Init.WordLength = UART_WORDLENGTH_8B;
+huart1.Init.StopBits   = UART_STOPBITS_1;
+huart1.Init.Parity     = UART_PARITY_NONE; 
+huart1.Init.Mode       = UART_MODE_TX_RX; 
+HAL_UART_Init(&huart1) ;
+
+
+sprintf(hex2,"54454A415241545F42414E4B30323030303030303030303430303030303030303030303130303030313220202020202020202020202020202020202020202020202000006EB1C5B923FAF77A");
+
+NVIC_EnableIRQ(SysTick_IRQn); /* (1) */
+NVIC_SetPriority(SysTick_IRQn,2); /* (2) */
+
+TIM1->SR &=0xfe;
+ac=1000;
+while (1)
+  {
+ 
+		
+			n_s=GPIOA->IDR&0xaf3;
+		if(n_s==0x00){ k[18]++; }
+		else if (n_s== 0x03){ k[0]++;}//if (n==0){TIM1->SR &=0xfe;}if(n>1500){n=0;sprintf(buf,"0");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=(GPIOA->IDR)&0xaf3;}else{n_s=0x01;}
+		else if (n_s== 0x22){ k[1]++;}//sprintf(buf,"1");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=(GPIOA->IDR)&0xaf3;
+		else if (n_s== 0x30){ k[2]++;k[18]=k[18]-200;}//sprintf(buf,"2	");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=0x100;
+		else if (n_s== 0x12){ k[3]++;k[18]=k[18]-200;}//sprintf(buf,"3");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=0x100;
+		else if (n_s== 0x90){ k[4]++;k[18]=k[18]-200;k[18]=k[18]-200;}//sprintf(buf,"4");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=0x100;
+		else if (n_s== 0xA0){ k[5]++;}//sprintf(buf,"5");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=0x100;
+		else if (n_s== 0x82){ k[6]++;k[18]=k[18]-200;}//sprintf(buf,"6");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=0x100;
+		else if (n_s== 0x50){ k[7]++;k[18]=k[18]-200;}//sprintf(buf,"7");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=(GPIOA->IDR)&0xaf3;
+		else if (n_s== 0x60){ k[8]++;}//sprintf(buf,"8");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=(GPIOA->IDR)&0xaf3;
+		else if (n_s== 0x42){ k[9]++;}//sprintf(buf,"9");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);n_s=(GPIOA->IDR)&0xaf3;
+		else if (n_s== 0x11){ k[10]++;k[18]--;k[18]--;}//+
+		else if (n_s== 0x810){ k[11]++;k[18]--;k[18]--;}//sprintf(buf,"here -");HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);//-
+		else if (n_s== 0x081){ k[12]++;}//*
+		else if (n_s== 0x880){ k[13]++;}// "/"
+		else if (n_s== 0x820){ k[14]++;}// "="
+		else if (n_s== 0xa00){ k[15]++;k[15]++; k[14]--;}//"correct"
+		else if (n_s== 0x21){ k[16]++;}//"00"
+		else if (n_s== 0x802){ k[17]++;}//"."
+			
+		if (n_s==0xf0ff){
+
+					
+
+			 }
+ 
+		if ((TIM1->SR)&0x01){
+											TIM1->SR &=0xfe;
+											co_time++;
+					}
+		if(co_time>100){
+								co_time=0;
+								//k[0]=k[0]-3000;
+
+								k[1]=k[1]-250;
+								k[11]=k[11]-1000;
+								//k[17]=k[17]-2500;
+								k[18]=k[18]-5000; 
+							//	k[3]=k[3];
+
+								for( i=0;i<18;i++){
+											if(k[i]>100){n_s=0x10;}
+											else{
+													k[i]=0;
+												}
+											
+//													if(k[14]>100){
+// 																sprintf(buf8,"%d: %d\n",i,k[14]);
+// 																HAL_UART_Transmit(&huart1, (uint8_t*)buf8, COUNTOF(buf8)-1, 5000);}
+ 																		 }
+											if(k[18]>1000){n_s=0x10;}
+											else{		k[18]=0;}
+																			
+																												 
+															
+						}
+					if (n_s==0x10)
+				{
+					x11=x1;
+					x22=x2;
+						//				sprintf(buf8," %d,%d\n",k[2],k[3]);
+						//HAL_UART_Transmit(&huart1, (uint8_t*)buf8, COUNTOF(buf8)-1, 5000);
+					if(k[18]>3000){
+						k[18]=0;	
+										while(k[18]>5000){
+										k[18]=0;	
+										TIM16->SR &=0xfe;
+										while(!((TIM16->SR)&0x01))
+											{
+												if((GPIOA->IDR&0x2d3)==(0x000)){k[18]++;}
+											}
+										}
+										ac=0;sprintf(buf,"c");
+										HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
+										op=0;
+										point1=0;
+										point2=0;
+										x1=0;x2=0;result=0;flag=1;
+									}
+				   else if((k[0]<850)&(k[0]>280)){
+						while(k[0]>200){
+						k[0]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							{if((GPIOA->IDR&0xaf3)==(0x03)){
+							k[0]++;}
+						}
+						}
+						sprintf(buf,"0");
+
+						
+								if(flag){x1=x1*10 ;if(point1>0){point1++;}}
+						else{x2=x2*10 ;if(point2>0){point2++;}}
+					 
+						
+ 
+						}
+					
+					 else if(k[1]>500){
+						//n_s=0xff;
+						while(k[1]>50){
+						k[1]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							{if((GPIOA->IDR&0xaf3)==(0x22)){
+							k[1]++;}
+						}
+						}
+							
+						sprintf(buf,"1");
+	 					//HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
+						if(flag){x1=x1*10+1;if(point1>0){point1++;}}
+						else{x2=x2*10+1;if(point2>0){point2++;}}
+						
+
+					}
+
+					 else if(k[2]>200){
+						while(k[2]>20){
+						k[2]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							{if((GPIOA->IDR&0xaf3)==(0x30)){
+							k[2]++;}
+						}
+						}
+						if(flag){x1=x1*10+2;if(point1>0){point1++;}}
+						else{x2=x2*10+2;if(point2>0){point2++;}}
+					 
+						sprintf(buf,"2");
+		 			  		
+					 
+						}
+					 else if(k[3]>400){
+						while(k[3]>100){
+						k[3]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							{if((GPIOA->IDR&0xaf3)==(0x12)){
+							k[3]++;}
+						}
+						}	
+					sprintf(buf,"3");
+//			 		HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
+//					
+									if(flag){x1=x1*10+3;if(point1>0){point1++;}}
+						else{x2=x2*10+3;if(point2>0){point2++;}}
+						 
+						}
+					 else if(k[4]>200){
+					while(k[4]>50){
+						k[4]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+								{if((GPIOA->IDR&0xaf3)==(0x90)){
+							k[4]++;}
+						}
+						}
+						
+					 	sprintf(buf,"4");
+ 
+						if(flag){x1=x1*10+4;if(point1>0){point1++;}}
+						else{x2=x2*10+4;if(point2>0){point2++;}}
+						}
+					 else if(k[5]>200){
+						while(k[5]>50){
+						k[5]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0xA0)){
+							k[5]++;}
+							}
+						}	
+					sprintf(buf,"5");
+						if(flag){x1=x1*10+5;if(point1>0){point1++;}}
+						else{x2=x2*10+5;if(point2>0){point2++;}}
+				 
+						}
+					 else if(k[6]>200){
+						while(k[6]>200){
+						k[6]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0x82)){
+							k[6]++;}
+							}
+						}	
+					sprintf(buf,"6");
+		 		 						if(flag){x1=x1*10+6;if(point1>0){point1++;}}
+						else{x2=x2*10+6;if(point2>0){point2++;}}
+						
+				 
+						}
+					 else if(k[7]>300){
+						while(k[7]>200){
+						k[7]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0x50)){
+							k[7]++;}
+							}
+						}	
+					sprintf(buf,"7");
+	 						if(flag){x1=x1*10+7;if(point1>0){point1++;}}
+						else{x2=x2*10+7;if(point2>0){point2++;}}
+						}
+					 else if(k[8]>250){
+						
+					while(k[8]>100){
+						k[8]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0x60)){
+							k[8]++;}
+							}
+						}	
+					sprintf(buf,"8");
+									if(flag){x1=x1*10+8;if(point1>0){point1++;}}
+						else{x2=x2*10+8;if(point2>0){point2++;}}
+						}
+					 else if(k[9]>300){
+						while(k[9]>200){
+						k[9]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0x42)){
+							k[9]++;}
+							}
+						}	
+						sprintf(buf,"9");
+				 						if(flag){x1=x1*10+9;if(point1>0){point1++;}}
+						else{x2=x2*10+9;if(point2>0){point2++;}}
+							}
+					 else if(k[10]>350){
+							while(k[10]>200){
+							k[10]=0;	
+							TIM16->SR &=0xfe;
+							while(!((TIM16->SR)&0x01)){
+								if((GPIOA->IDR&0xaf3)==(0x11)){
+								k[10]++;}
+								}
+							}	
+						sprintf(buf," + "); 
+						flag=0;
+						op='+';
+				 
+							}
+					 else if(k[11]>500){
+						while(k[11]>200){
+						k[11]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0x810)){
+							k[11]++;}
+							}
+						}	
+						sprintf(buf," - ");
+ 						 flag=0;
+						op='-';
+		 
+							}
+					  else if(k[12]>250){
+							while(k[12]>200){
+						k[12]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0x081)){
+							k[12]++;}
+							}
+						}	
+						sprintf(buf,"*");
+			 	 
+						flag=0;
+						op='*';
+						 
+							}
+					 else if(k[13]>400){
+							while(k[13]>200){
+								k[13]=0;	
+								TIM16->SR &=0xfe;
+								while(!((TIM16->SR)&0x01)){
+									if((GPIOA->IDR&0xaf3)==(0x880)){
+									k[13]++;}
+									}
+							}	
+						
+							sprintf(buf,"/");
+ 						flag=0;
+						op='/';
+						 
+					}
+					 else if((k[14]>200)&(k[14]<800)){
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+						 
+						 while(k[14]>100){
+						k[14]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01)){
+							if((GPIOA->IDR&0xaf3)==(0x820)){
+							k[14]++;}
+							}
+						}	
+							sprintf(buf," = ");
+						 
+							if(point1>0) x1=x1/(10^(point1-1));
+							if(point2>0)  x2=x2/(10^(point2-1));
+						point1=0;
+						point2=0;
+							flag=0;
+						   if(op=='*') result= (x1*x2);
+								else if(op=='+') result=(x1+x2);
+								else if(op=='-') result= (x1-x2);
+								else if(op=='/') result= (x1/x2);
+								else if(op==0) result= x1;
+						op=0;
+				 	sprintf(buf8," %3f %c %3f = %3f\n",x1,op,x2,result);
+			//	 HAL_UART_Transmit(&huart1, (uint8_t*)buf8, COUNTOF(buf8)-1, 5000);
+							for( i=0;i<50;i++){
+								buf8[i]=0;
+								}
+//				 		sprintf(buf5," %3f",result);
+//			 HAL_UART_Transmit(&huart1, (uint8_t*)buf5, COUNTOF(buf5)-1, 5000);
+						x1=result;
+						x2=0;	 
+					}
+					 else if(k[15]>500){
+							while(k[15]>100){
+							k[15]=0;	
+							TIM16->SR &=0xfe;
+							while(!((TIM16->SR)&0x01)){
+								if((GPIOA->IDR&0xaf3)==(0xa00)){
+								k[15]++;}
+								}
+							}	
+							for( i=0;i<50;i++){
+								buf5[i]=0;
+								}
+						if (flag)	sprintf(buf5,"%f",x1);
+						else  if (x2!=0)sprintf(buf5,"%f",x2);
+						else sprintf(buf5,"%f",result);
+							int len =strlen(buf5);							
+							sprintf(hex2,"54454A415241545F42414E4B303230303030303030303034303%c3%c3%c3%c3%c3%c3%c3%c3%c3%c3%c",buf5[len-18],buf5[len-17],buf5[len-16],buf5[len-15],buf5[len-14], buf5[len-13],buf5[len-12],buf5[len-11],buf5[len-10],buf5[len-9],buf5[len-8] );
+							char asciiStr[100];
+							for(int i = 0; i < 151; i +=2)
+							{
+								asciiStr[i/2] = getHexVal(hex2[i])*16 + getHexVal(hex2[i+1]);
+								HAL_UART_Transmit(&huart1, (uint8_t*)(asciiStr+i/2), 1, 5000);
+							}
+				 
+						 
+							}				
+					 else if(k[16]>200){
+						while(k[16]>30){
+								k[16]=0;	
+								TIM16->SR &=0xfe;
+								while(!((TIM16->SR)&0x01))
+									{if((GPIOA->IDR&0xaf3)==(0x21)){
+									k[16]++;}
+						}
+						}
+						sprintf(buf,"0d");
+							if(flag){x1=x1*100;if(point1>0){point1++;}}
+						else{x2=x2*100;if(point2>0){point2++;}}
+						
+						}	
+					  else if(k[17]>650){
+						while(k[17]>300){
+						k[17]=0;	
+						TIM16->SR &=0xfe;
+						while(!((TIM16->SR)&0x01))
+							{if((GPIOA->IDR&0xaf3)==(0x802)){
+							k[17]++;}
+						}
+						}
+						sprintf(buf,".");
+												if(flag){ if(point1==0){point1++;}}
+						else{ if(point2==0){point2++;}}
+			
+						}	
+								
+						if ((x1!=x11)|(x2!=x22)){
+						//HAL_UART_Transmit(&huart1, (uint8_t*)buf, COUNTOF(buf)-1, 5000);
+							}
+				 
+					
+								for( i=0;i<21;i++){
+								k[i]=0;
+								}
+										
+		
+						}
+					}
+						
+				}
+					
+					
+			/*		for( i=0;i<21;i++){
+						
+													if(k[i]>100) n_s=0x10;
+												}*/
+					
+ 
+		
+ 
+  
+ 
+
+
+ 
+void SystemClock_Config(void)
+{
+
+  RCC_OscInitTypeDef RCC_OscInitStruct;
+  RCC_ClkInitTypeDef RCC_ClkInitStruct;
+
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = 16;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;
+  RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+
+  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+
+  /* SysTick_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+}
+/* TIM1 init function */
+//static void MX_TIM1_Init(void)
+//{
+
+//  TIM_MasterConfigTypeDef sMasterConfig;
+//  TIM_IC_InitTypeDef sConfigIC;
+
+//  htim1.Instance = TIM1;
+//  htim1.Init.Prescaler = 0;
+//  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+//  htim1.Init.Period = 0;
+//  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//  htim1.Init.RepetitionCounter = 0;
+//  if (HAL_TIM_IC_Init(&htim1) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+//  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+//  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
+//  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
+//  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
+//  sConfigIC.ICFilter = 0;
+//  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_2) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_3) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_4) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//}
+
+///* TIM3 init function */
+//static void MX_TIM3_Init(void)
+//{
+
+//  TIM_MasterConfigTypeDef sMasterConfig;
+//  TIM_IC_InitTypeDef sConfigIC;
+
+//  htim3.Instance = TIM3;
+//  htim3.Init.Prescaler = 0;
+//  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+//  htim3.Init.Period = 0;
+//  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//  if (HAL_TIM_IC_Init(&htim3) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+//  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+//  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
+//  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
+//  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
+//  sConfigIC.ICFilter = 0;
+//  if (HAL_TIM_IC_ConfigChannel(&htim3, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  if (HAL_TIM_IC_ConfigChannel(&htim3, &sConfigIC, TIM_CHANNEL_2) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  if (HAL_TIM_IC_ConfigChannel(&htim3, &sConfigIC, TIM_CHANNEL_3) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  if (HAL_TIM_IC_ConfigChannel(&htim3, &sConfigIC, TIM_CHANNEL_4) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//}
+
+///* TIM14 init function */
+//static void MX_TIM14_Init(void)
+//{
+
+//  htim14.Instance = TIM14;
+//  htim14.Init.Prescaler = 0;
+//  htim14.Init.CounterMode = TIM_COUNTERMODE_UP;
+//  htim14.Init.Period = 0;
+//  htim14.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//  if (HAL_TIM_Base_Init(&htim14) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//}
+
+///* TIM17 init function */
+//static void MX_TIM17_Init(void)
+//{
+
+//  TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig;
+//  TIM_OC_InitTypeDef sConfigOC;
+
+//  htim17.Instance = TIM17;
+//  htim17.Init.Prescaler = 0;
+//  htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
+//  htim17.Init.Period = 0;
+//  htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//  htim17.Init.RepetitionCounter = 0;
+//  if (HAL_TIM_Base_Init(&htim17) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  if (HAL_TIM_OC_Init(&htim17) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
+//  sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+//  sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+//  sBreakDeadTimeConfig.DeadTime = 0;
+//  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+//  sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+//  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+//  if (HAL_TIMEx_ConfigBreakDeadTime(&htim17, &sBreakDeadTimeConfig) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//  sConfigOC.OCMode = TIM_OCMODE_TIMING;
+//  sConfigOC.Pulse = 0;
+//  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+//  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+//  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+//  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+//  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+//  if (HAL_TIM_OC_ConfigChannel(&htim17, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//}
+
+
+
+/* USART1 init function */
+//static void MX_USART1_UART_Init(void)
+//{
+
+//  huart1.Instance = USART1;
+//  huart1.Init.BaudRate = 38400;
+//  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+//  huart1.Init.StopBits = UART_STOPBITS_1;
+//  huart1.Init.Parity = UART_PARITY_NONE;
+//  huart1.Init.Mode = UART_MODE_TX_RX;
+//  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+//  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+//  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+//  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+//  if (HAL_UART_Init(&huart1) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
+//}
+
+/** Pinout Configuration
+*/
+static void MX_GPIO_Init(void)
+{
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+}
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @param  None
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler */
+  /* User can add his own implementation to report the HAL error return state */
+  while(1) 
+  {
+  }
+  /* USER CODE END Error_Handler */ 
+}
+
+#ifdef USE_FULL_ASSERT
+
+/**
+   * @brief Reports the name of the source file and the source line number
+   * where the assert_param error has occurred.
+   * @param file: pointer to the source file name
+   * @param line: assert_param error line source number
+   * @retval None
+   */
+void assert_failed(uint8_t* file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+    ex: printf("Wrong parameters value: file %s on line %drn", file, line) */
+  /* USER CODE END 6 */
+
+}
+
+#endif
+int getHexVal(char c)
+{
+  if(c >= '0' && c<= '9')
+    return c - '0';
+  else if(c >= 'a' && c<= 'f')
+    return c - 'a' + 10;
+  else if(c >= 'A' && c<= 'F')
+    return c - 'A' + 10;
+  else
+    return -1;//error
+}
+
+void send(char* hex){
+	
+
+int hexLen = strlen(hex);
+char asciiStr[hexLen/2+1];
+for(int i = 0; i < hexLen; i +=2)
+{
+  asciiStr[i/2] = getHexVal(hex[i])*16 + getHexVal(hex[i+1]);
+	HAL_UART_Transmit(&huart1, (uint8_t*)(asciiStr+i/2), 1, 5000);
+}
+
+}
+/**
+  * @}
+  */ 
+
+/**
+  * @}
+*/ 
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

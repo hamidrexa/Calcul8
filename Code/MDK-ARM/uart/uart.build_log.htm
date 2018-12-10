@@ -1,0 +1,74 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: ali amigh, mrdepp, LIC=3UUHL-0YN2V-15STV-PWKZT-0RQ7H-UEX8B
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  d:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DARMCM1.DLL V1.12.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
+Dialog DLL:      TARMCM1.DLL V1.9.0.0
+ 
+<h2>Project:</h2>
+F:\amoozesh\PROJECT\arm\pwm\lcd_casio\MDK-ARM\uart.uvprojx
+Project File Date:  09/04/2018
+
+<h2>Output:</h2>
+Build target 'uart'
+compiling main.c...
+../Src/main.c(128): warning:  #223-D: function "malloc" declared implicitly
+        A = (int*) malloc (100);
+../Src/main.c(145): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                                                         sprintf(buf5,"%f",200);
+../Src/main.c(88): warning:  #177-D: variable "buf8" was declared but never referenced
+  char buf8[100];
+../Src/main.c(90): warning:  #177-D: variable "buf" was declared but never referenced
+  char buf[60];
+../Src/main.c(93): warning:  #550-D: variable "arduino" was set but never used
+  char arduino[14];
+../Src/main.c(120): warning:  #177-D: variable "pa3" was declared but never referenced
+        int pa1,pa2,pa3,pb1,pb2,pb3;
+../Src/main.c(120): warning:  #177-D: variable "pb1" was declared but never referenced
+        int pa1,pa2,pa3,pb1,pb2,pb3;
+../Src/main.c(120): warning:  #177-D: variable "pb2" was declared but never referenced
+        int pa1,pa2,pa3,pb1,pb2,pb3;
+../Src/main.c(120): warning:  #177-D: variable "pb3" was declared but never referenced
+        int pa1,pa2,pa3,pb1,pb2,pb3;
+../Src/main.c(126): warning:  #177-D: variable "pointer" was declared but never referenced
+        int pointer,duty;
+../Src/main.c: 10 warnings, 0 errors
+linking...
+Program Size: Code=13848 RO-data=460 RW-data=20 ZI-data=1652  
+FromELF: creating hex file...
+"uart\uart.axf" - 0 Error(s), 10 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.2.0.pack
+                ARM::CMSIS:CORE:3.40.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 3.40.0
+
+<h2>Collection of Component include folders:</h2>
+  F:\amoozesh\PROJECT\arm\pwm\lcd_casio\MDK-ARM\RTE
+  d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:3.40.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+</pre>
+</body>
+</html>
