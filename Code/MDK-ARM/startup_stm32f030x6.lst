@@ -361,10 +361,11 @@ ARM Macro Assembler    Page 6
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=uart\startup_stm32f030x6.d -ouart\startup_stm32f030x6.o -IF:\amooz
-esh\PROJECT\arm\pwm\lcd_casio\MDK-ARM\RTE -Id:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0
-\CMSIS\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION S
-ETA 514" --predefine="_RTE_ SETA 1" --list=startup_stm32f030x6.lst startup_stm3
-2f030x6.s
+esh\PROJECT\hardtech\github\Calcul8\Code\MDK-ARM\RTE -Id:\Keil_v5\ARM\PACK\ARM\
+CMSIS\4.2.0\CMSIS\Include -Id:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0 --pred
+efine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine=
+"_RTE_ SETA 1" --predefine="STM32F030x6 SETA 1" --list=startup_stm32f030x6.lst 
+startup_stm32f030x6.s
 
 
 
@@ -804,4 +805,4 @@ Symbol: __main
       At line 137 in file startup_stm32f030x6.s
 Comment: __main used once
 2 symbols
-378 symbols in table
+379 symbols in table

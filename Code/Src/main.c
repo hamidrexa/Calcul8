@@ -563,6 +563,7 @@ sum=sum*m;
 							}
 							*/
 /*pos_pax_rs232_s800	*/
+/*
 char part1[250];
 						sprintf(bufpax,"0017010430363030060c");
 						for(int i =0; i < 20; i +=2)	
@@ -578,6 +579,12 @@ char part1[250];
 								part1[i/2] = getHexVal(bufpax[i])*16 + getHexVal(bufpax[i+1]);
 								HAL_UART_Transmit(&huart1, (uint8_t*)(part1+i/2), 1, 5000);
 							}
+*/
+/*pos_senval*/
+	HAL_UART_Transmit(&huart1, (uint8_t*)"ok", 2, 5000);	
+ 	 sprintf(buf5,"%0.f",sum);				
+ 	HAL_UART_Transmit(&huart1, (uint8_t*)buf5, 12, 5000);	
+	HAL_UART_Transmit(&huart1, (uint8_t*)"yes", 3, 5000);	
 							
  	 	GPIOA->ODR=0x80; 
 	 delay(1000);
