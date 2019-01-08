@@ -53,7 +53,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VSWBFMKB
+DocumentUniqueId=YUHLQCJE
 
 [Document2]
 DocumentPath=Calcul8_SCH.SchDoc
@@ -73,6 +73,23 @@ GenerateClassCluster=0
 DocumentUniqueId=JCXYGSKO
 
 [Document3]
+DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Miscellaneous Devices\Miscellaneous Devices.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=MHTGXAHJ
+
+[Document4]
 DocumentPath=E:\Rar$DRa0.541\my altium library\nrf51x22_qfax.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -89,7 +106,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UVSKWALQ
 
-[Document4]
+[Document5]
 DocumentPath=Calcul8.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -106,7 +123,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CGGLKPRF
 
-[Document5]
+[Document6]
 DocumentPath=E:\Rar$DRa0.541\my altium library\nrf51x22_qfax.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -123,7 +140,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MRTYRMNL
 
-[Document6]
+[Document7]
 DocumentPath=Calcul8.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -140,8 +157,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WNSEXUNM
 
-[Document7]
-DocumentPath=Calcul8_PCBV2.PcbDoc
+[Document8]
+DocumentPath=D:\Users\Public\Documents\Altium\AD17\Library\Miscellaneous Devices.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -155,7 +172,24 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=YUHLQCJE
+DocumentUniqueId=
+
+[Document9]
+DocumentPath=Calcul8.IntLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for Calcul8\Board Information - Calcul8_PCBV2.html
