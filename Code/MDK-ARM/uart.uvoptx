@@ -81,23 +81,23 @@
       <Books>
         <Book>
           <Number>0</Number>
-          <Title>Data Sheet</Title>
-          <Path>DATASHTS\ST\STM32F0xx\DM00088500.pdf</Path>
+          <Title>Quick Start Guide (STM32F030-Discovery)</Title>
+          <Path>d:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\MDK/Boards/ST/STM32F030-Discovery/Documents/32F030DISCOVERY_QSG.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
-          <Title>Reference Manual</Title>
-          <Path>DATASHTS\ST\STM32F0xx\DM00031936.pdf</Path>
+          <Title>Data Brief (STM32F030-Discovery)</Title>
+          <Path>d:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\MDK/Boards/ST/STM32F030-Discovery/Documents/DM00092305.pdf</Path>
         </Book>
         <Book>
           <Number>2</Number>
-          <Title>Technical Reference Manual</Title>
-          <Path>datashts\arm\cortex_m0\r0p0\DDI0432C_CORTEX_M0_R0P0_TRM.PDF</Path>
+          <Title>Schematics (STM32F030-Discovery)</Title>
+          <Path>d:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.0.0\MDK/Boards/ST/STM32F030-Discovery/Documents/MB1134.pdf</Path>
         </Book>
         <Book>
           <Number>3</Number>
-          <Title>Generic User Guide</Title>
-          <Path>datashts\arm\cortex_m0\r0p0\DUI0497A_CORTEX_M0_R0P0_GENERIC_UG.PDF</Path>
+          <Title>STM32F030-Discovery Web Page (STM32F030-Discovery)</Title>
+          <Path>http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1848/PF259100</Path>
         </Book>
       </Books>
       <DebugOpt>
@@ -136,6 +136,11 @@
         <pMon>STLink\ST-LINKIII-KEIL_SWO.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>UL2CM3</Key>
+          <Name>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F0xx_32 -FS08000000 -FL08000 -FP0($$Device:STM32F030K6$CMSIS/Flash/STM32F0xx_32.FLM))</Name>
+        </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>

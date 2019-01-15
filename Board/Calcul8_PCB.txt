@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : F:\amoozesh\PROJECT\hardtech\github\Calcul8\Board\Calcul8_PCB.PcbDoc
+Date         : 08/01/2019
+Time         : 06:07:06 ?.?
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 100/00%
+    Connections, 203
+    Connections routed, 203
+    Connections remaining, 0
+count : 4
