@@ -123,6 +123,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NIMWAGLL
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Calcul8\Board Information - Calcul8_PCB.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
