@@ -1,0 +1,14 @@
+Change Component Library : Designator=port Old Library=Schlib1.SchLib New Library=Calcul8.IntLib
+Added Component: Designator=CM1(1608[0603])
+Added Component: Designator=P8(HDR1X2)
+Added Component: Designator=PC4(C1206)
+Added Pin To Net: NetName=GND Pin=CM1-1
+Added Pin To Net: NetName=3.3V Pin=CM1-2
+Added Pin To Net: NetName=NetAC2_1 Pin=P8-1
+Added Pin To Net: NetName=GND Pin=P8-2
+Added Pin To Net: NetName=5V Pin=PC4-1
+Added Pin To Net: NetName=GND Pin=PC4-2
+Added Member To Class: ClassName=Calcul8_SCH Member=Component CM1 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component P8 JUMPER
+Added Member To Class: ClassName=Calcul8_SCH Member=Component PC4 PC1
+Added Room: Name=Calcul8_SCH

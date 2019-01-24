@@ -1,0 +1,333 @@
+Added Component: Designator=AC2(1608[0603])
+Added Component: Designator=AP1(HDR1X6)
+Added Component: Designator=AR3(J1-0603)
+Added Component: Designator=C4(1608[0603])
+Added Component: Designator=CB1(C1206)
+Added Component: Designator=CM1(1608[0603])
+Added Component: Designator=CM2(1608[0603])
+Added Component: Designator=CM3(1608[0603])
+Added Component: Designator=CM5(1608[0603])
+Added Component: Designator=CM6(1608[0603])
+Added Component: Designator=D4(SOD-80)
+Added Component: Designator=MRQ1(SOT-23_M)
+Added Component: Designator=MRQ2(SOT-23_M)
+Added Component: Designator=MRQ3(SOT-23_M)
+Added Component: Designator=MRQ4(SOT-23_M)
+Added Component: Designator=MUX1(mux)
+Added Component: Designator=MUX2(mux)
+Added Component: Designator=MUX3(mux)
+Added Component: Designator=MUX4(mux)
+Added Component: Designator=MUX5(mux)
+Added Component: Designator=MUX6(mux)
+Added Component: Designator=P8(HDR1X2)
+Added Component: Designator=PC1(C1206)
+Added Component: Designator=PC2(C1206)
+Added Component: Designator=PC4(C1206)
+Added Component: Designator=PC5(C1206)
+Added Component: Designator=port(lcd_pad_2)
+Added Component: Designator=R1(1608[0603])
+Added Component: Designator=R5(1608[0603])
+Added Component: Designator=R6(1608[0603])
+Added Component: Designator=R7(1608[0603])
+Added Component: Designator=R8(1608[0603])
+Added Component: Designator=R9(1608[0603])
+Added Component: Designator=R10(1608[0603])
+Added Component: Designator=reg1(ams)
+Added Component: Designator=reg2(ams)
+Added Component: Designator=SC1(1608[0603])
+Added Component: Designator=SC2(1608[0603])
+Added Component: Designator=SC3(1608[0603])
+Added Component: Designator=SC4(1608[0603])
+Added Component: Designator=SC5(1608[0603])
+Added Component: Designator=SU1(SO16_N)
+Added Component: Designator=U2(CMT-8530S-SMT)
+Added Component: Designator=UA(STM-TSSOP20_L)
+Added Pin To Net: NetName=NetAC2_1 Pin=AC2-1
+Added Pin To Net: NetName=GND Pin=AC2-2
+Added Pin To Net: NetName=NetAP1_1 Pin=AP1-1
+Added Pin To Net: NetName=GND Pin=AP1-2
+Added Pin To Net: NetName=NetAP1_3 Pin=AP1-3
+Added Pin To Net: NetName=3.3V Pin=AP1-4
+Added Pin To Net: NetName=5V Pin=AP1-5
+Added Pin To Net: NetName=NetAP1_6 Pin=AP1-6
+Added Pin To Net: NetName=3.3V Pin=AR3-1
+Added Pin To Net: NetName=NetAC2_1 Pin=AR3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=3.3V Pin=C4-2
+Added Pin To Net: NetName=3.3V Pin=CB1-1
+Added Pin To Net: NetName=GND Pin=CB1-2
+Added Pin To Net: NetName=GND Pin=CM1-1
+Added Pin To Net: NetName=3.3V Pin=CM1-2
+Added Pin To Net: NetName=GND Pin=CM2-1
+Added Pin To Net: NetName=3.3V Pin=CM2-2
+Added Pin To Net: NetName=3.3V Pin=CM3-1
+Added Pin To Net: NetName=GND Pin=CM3-2
+Added Pin To Net: NetName=GND Pin=CM5-1
+Added Pin To Net: NetName=3.3V Pin=CM5-2
+Added Pin To Net: NetName=GND Pin=CM6-1
+Added Pin To Net: NetName=3.3V Pin=CM6-2
+Added Pin To Net: NetName=NetD4_1 Pin=D4-1
+Added Pin To Net: NetName=3.3V Pin=D4-2
+Added Pin To Net: NetName=NetMRQ1_1 Pin=MRQ1-1
+Added Pin To Net: NetName=GND Pin=MRQ1-2
+Added Pin To Net: NetName=NetMRQ1_3 Pin=MRQ1-3
+Added Pin To Net: NetName=NetMRQ2_1 Pin=MRQ2-1
+Added Pin To Net: NetName=GND Pin=MRQ2-2
+Added Pin To Net: NetName=NetMRQ2_3 Pin=MRQ2-3
+Added Pin To Net: NetName=NetMRQ3_1 Pin=MRQ3-1
+Added Pin To Net: NetName=GND Pin=MRQ3-2
+Added Pin To Net: NetName=NetMRQ3_3 Pin=MRQ3-3
+Added Pin To Net: NetName=NetMRQ4_1 Pin=MRQ4-1
+Added Pin To Net: NetName=GND Pin=MRQ4-2
+Added Pin To Net: NetName=NetD4_1 Pin=MRQ4-3
+Added Pin To Net: NetName=NetMUX1_1 Pin=MUX1-1
+Added Pin To Net: NetName=NetMUX1_2 Pin=MUX1-2
+Added Pin To Net: NetName=NetMUX1_3 Pin=MUX1-3
+Added Pin To Net: NetName=NetMUX1_4 Pin=MUX1-4
+Added Pin To Net: NetName=NetMUX1_5 Pin=MUX1-5
+Added Pin To Net: NetName=GND Pin=MUX1-7
+Added Pin To Net: NetName=GND Pin=MUX1-8
+Added Pin To Net: NetName=NetMUX1_9 Pin=MUX1-9
+Added Pin To Net: NetName=NetMUX1_10 Pin=MUX1-10
+Added Pin To Net: NetName=NetMUX1_11 Pin=MUX1-11
+Added Pin To Net: NetName=NetMUX1_12 Pin=MUX1-12
+Added Pin To Net: NetName=NetMUX1_13 Pin=MUX1-13
+Added Pin To Net: NetName=NetMUX1_14 Pin=MUX1-14
+Added Pin To Net: NetName=NetMUX1_15 Pin=MUX1-15
+Added Pin To Net: NetName=3.3V Pin=MUX1-16
+Added Pin To Net: NetName=NetMUX2_1 Pin=MUX2-1
+Added Pin To Net: NetName=NetMUX2_2 Pin=MUX2-2
+Added Pin To Net: NetName=NetMUX2_3 Pin=MUX2-3
+Added Pin To Net: NetName=NetMUX2_4 Pin=MUX2-4
+Added Pin To Net: NetName=NetMUX2_5 Pin=MUX2-5
+Added Pin To Net: NetName=GND Pin=MUX2-7
+Added Pin To Net: NetName=GND Pin=MUX2-8
+Added Pin To Net: NetName=NetMUX1_9 Pin=MUX2-9
+Added Pin To Net: NetName=NetMUX1_10 Pin=MUX2-10
+Added Pin To Net: NetName=NetMUX1_11 Pin=MUX2-11
+Added Pin To Net: NetName=NetMUX2_12 Pin=MUX2-12
+Added Pin To Net: NetName=NetMUX2_13 Pin=MUX2-13
+Added Pin To Net: NetName=NetMUX2_14 Pin=MUX2-14
+Added Pin To Net: NetName=NetMUX2_15 Pin=MUX2-15
+Added Pin To Net: NetName=3.3V Pin=MUX2-16
+Added Pin To Net: NetName=NetMUX3_1 Pin=MUX3-1
+Added Pin To Net: NetName=NetMUX3_2 Pin=MUX3-2
+Added Pin To Net: NetName=NetMUX3_3 Pin=MUX3-3
+Added Pin To Net: NetName=NetMUX3_4 Pin=MUX3-4
+Added Pin To Net: NetName=NetMUX3_5 Pin=MUX3-5
+Added Pin To Net: NetName=GND Pin=MUX3-7
+Added Pin To Net: NetName=GND Pin=MUX3-8
+Added Pin To Net: NetName=NetMUX1_9 Pin=MUX3-9
+Added Pin To Net: NetName=NetMUX1_10 Pin=MUX3-10
+Added Pin To Net: NetName=NetMUX1_11 Pin=MUX3-11
+Added Pin To Net: NetName=NetMUX3_12 Pin=MUX3-12
+Added Pin To Net: NetName=NetMUX3_13 Pin=MUX3-13
+Added Pin To Net: NetName=NetMUX3_14 Pin=MUX3-14
+Added Pin To Net: NetName=NetMUX3_15 Pin=MUX3-15
+Added Pin To Net: NetName=3.3V Pin=MUX3-16
+Added Pin To Net: NetName=NetMUX4_1 Pin=MUX4-1
+Added Pin To Net: NetName=NetMRQ3_3 Pin=MUX4-2
+Added Pin To Net: NetName=GND Pin=MUX4-3
+Added Pin To Net: NetName=GND Pin=MUX4-4
+Added Pin To Net: NetName=NetMUX4_5 Pin=MUX4-5
+Added Pin To Net: NetName=GND Pin=MUX4-7
+Added Pin To Net: NetName=GND Pin=MUX4-8
+Added Pin To Net: NetName=NetMUX1_9 Pin=MUX4-9
+Added Pin To Net: NetName=NetMUX1_10 Pin=MUX4-10
+Added Pin To Net: NetName=NetMUX1_11 Pin=MUX4-11
+Added Pin To Net: NetName=NetMUX4_12 Pin=MUX4-12
+Added Pin To Net: NetName=NetMUX4_13 Pin=MUX4-13
+Added Pin To Net: NetName=NetMUX4_14 Pin=MUX4-14
+Added Pin To Net: NetName=NetMUX4_15 Pin=MUX4-15
+Added Pin To Net: NetName=3.3V Pin=MUX4-16
+Added Pin To Net: NetName=NetMUX5_1 Pin=MUX5-1
+Added Pin To Net: NetName=NetMRQ1_3 Pin=MUX5-2
+Added Pin To Net: NetName=NetMUX5_3 Pin=MUX5-3
+Added Pin To Net: NetName=NetMUX5_4 Pin=MUX5-4
+Added Pin To Net: NetName=NetMUX5_5 Pin=MUX5-5
+Added Pin To Net: NetName=GND Pin=MUX5-7
+Added Pin To Net: NetName=GND Pin=MUX5-8
+Added Pin To Net: NetName=NetMUX1_9 Pin=MUX5-9
+Added Pin To Net: NetName=NetMUX1_10 Pin=MUX5-10
+Added Pin To Net: NetName=NetMUX1_11 Pin=MUX5-11
+Added Pin To Net: NetName=NetMUX5_12 Pin=MUX5-12
+Added Pin To Net: NetName=NetMUX5_13 Pin=MUX5-13
+Added Pin To Net: NetName=NetMUX5_14 Pin=MUX5-14
+Added Pin To Net: NetName=NetMUX5_15 Pin=MUX5-15
+Added Pin To Net: NetName=3.3V Pin=MUX5-16
+Added Pin To Net: NetName=NetMUX6_1 Pin=MUX6-1
+Added Pin To Net: NetName=NetMRQ2_3 Pin=MUX6-2
+Added Pin To Net: NetName=NetMUX6_3 Pin=MUX6-3
+Added Pin To Net: NetName=NetMUX6_4 Pin=MUX6-4
+Added Pin To Net: NetName=NetMUX6_5 Pin=MUX6-5
+Added Pin To Net: NetName=GND Pin=MUX6-7
+Added Pin To Net: NetName=GND Pin=MUX6-8
+Added Pin To Net: NetName=NetMUX1_9 Pin=MUX6-9
+Added Pin To Net: NetName=NetMUX1_10 Pin=MUX6-10
+Added Pin To Net: NetName=NetMUX1_11 Pin=MUX6-11
+Added Pin To Net: NetName=NetMUX6_12 Pin=MUX6-12
+Added Pin To Net: NetName=NetMUX6_13 Pin=MUX6-13
+Added Pin To Net: NetName=NetMUX6_14 Pin=MUX6-14
+Added Pin To Net: NetName=NetMUX6_15 Pin=MUX6-15
+Added Pin To Net: NetName=3.3V Pin=MUX6-16
+Added Pin To Net: NetName=NetAC2_1 Pin=P8-1
+Added Pin To Net: NetName=GND Pin=P8-2
+Added Pin To Net: NetName=5V Pin=PC1-1
+Added Pin To Net: NetName=GND Pin=PC1-2
+Added Pin To Net: NetName=3.3V Pin=PC2-1
+Added Pin To Net: NetName=GND Pin=PC2-2
+Added Pin To Net: NetName=5V Pin=PC4-1
+Added Pin To Net: NetName=GND Pin=PC4-2
+Added Pin To Net: NetName=1.1V Pin=PC5-1
+Added Pin To Net: NetName=GND Pin=PC5-2
+Added Pin To Net: NetName=NetMUX1_1 Pin=port-4
+Added Pin To Net: NetName=NetMUX1_2 Pin=port-5
+Added Pin To Net: NetName=NetMUX2_2 Pin=port-6
+Added Pin To Net: NetName=NetMUX1_3 Pin=port-7
+Added Pin To Net: NetName=NetMUX1_4 Pin=port-8
+Added Pin To Net: NetName=NetMUX1_12 Pin=port-9
+Added Pin To Net: NetName=NetMUX1_15 Pin=port-11
+Added Pin To Net: NetName=NetMUX1_14 Pin=port-12
+Added Pin To Net: NetName=NetMUX1_13 Pin=port-13
+Added Pin To Net: NetName=NetMUX2_12 Pin=port-15
+Added Pin To Net: NetName=NetMUX2_13 Pin=port-16
+Added Pin To Net: NetName=NetMUX2_14 Pin=port-17
+Added Pin To Net: NetName=NetMUX2_15 Pin=port-19
+Added Pin To Net: NetName=NetMUX2_4 Pin=port-20
+Added Pin To Net: NetName=NetMUX2_3 Pin=port-21
+Added Pin To Net: NetName=NetMUX2_1 Pin=port-23
+Added Pin To Net: NetName=NetMUX3_12 Pin=port-24
+Added Pin To Net: NetName=NetMUX3_4 Pin=port-25
+Added Pin To Net: NetName=NetMUX3_2 Pin=port-26
+Added Pin To Net: NetName=NetMUX3_3 Pin=port-27
+Added Pin To Net: NetName=NetMUX3_13 Pin=port-28
+Added Pin To Net: NetName=NetMUX3_1 Pin=port-29
+Added Pin To Net: NetName=NetMUX3_14 Pin=port-30
+Added Pin To Net: NetName=NetMUX3_15 Pin=port-31
+Added Pin To Net: NetName=NetMUX4_12 Pin=port-32
+Added Pin To Net: NetName=NetMUX4_13 Pin=port-33
+Added Pin To Net: NetName=NetMUX4_1 Pin=port-34
+Added Pin To Net: NetName=NetMUX4_14 Pin=port-35
+Added Pin To Net: NetName=NetMUX4_15 Pin=port-36
+Added Pin To Net: NetName=NetMUX5_12 Pin=port-37
+Added Pin To Net: NetName=NetMUX5_13 Pin=port-38
+Added Pin To Net: NetName=NetMUX5_14 Pin=port-39
+Added Pin To Net: NetName=NetMUX5_15 Pin=port-40
+Added Pin To Net: NetName=NetMUX5_4 Pin=port-41
+Added Pin To Net: NetName=NetMUX5_3 Pin=port-42
+Added Pin To Net: NetName=NetMUX5_1 Pin=port-43
+Added Pin To Net: NetName=NetMUX6_4 Pin=port-44
+Added Pin To Net: NetName=NetMUX6_15 Pin=port-45
+Added Pin To Net: NetName=NetMUX6_14 Pin=port-46
+Added Pin To Net: NetName=NetMUX6_13 Pin=port-47
+Added Pin To Net: NetName=NetMUX6_12 Pin=port-48
+Added Pin To Net: NetName=NetMUX6_1 Pin=port-49
+Added Pin To Net: NetName=NetMUX6_3 Pin=port-50
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=NetMRQ4_1 Pin=R1-2
+Added Pin To Net: NetName=NetPP2_3 Pin=R5-1
+Added Pin To Net: NetName=NetMRQ1_1 Pin=R5-2
+Added Pin To Net: NetName=NetPP2_2 Pin=R6-1
+Added Pin To Net: NetName=NetMRQ2_1 Pin=R6-2
+Added Pin To Net: NetName=NetMRQ1_3 Pin=R7-1
+Added Pin To Net: NetName=3.3V Pin=R7-2
+Added Pin To Net: NetName=NetMRQ2_3 Pin=R8-1
+Added Pin To Net: NetName=3.3V Pin=R8-2
+Added Pin To Net: NetName=NetPP2_4 Pin=R9-1
+Added Pin To Net: NetName=NetMRQ3_1 Pin=R9-2
+Added Pin To Net: NetName=NetMRQ3_3 Pin=R10-1
+Added Pin To Net: NetName=3.3V Pin=R10-2
+Added Pin To Net: NetName=GND Pin=reg1-1
+Added Pin To Net: NetName=3.3V Pin=reg1-2
+Added Pin To Net: NetName=5V Pin=reg1-3
+Added Pin To Net: NetName=3.3V Pin=reg1-4
+Added Pin To Net: NetName=GND Pin=reg2-1
+Added Pin To Net: NetName=1.1V Pin=reg2-2
+Added Pin To Net: NetName=5V Pin=reg2-3
+Added Pin To Net: NetName=1.1V Pin=reg2-4
+Added Pin To Net: NetName=NetSC1_1 Pin=SC1-1
+Added Pin To Net: NetName=NetSC1_2 Pin=SC1-2
+Added Pin To Net: NetName=GND Pin=SC2-1
+Added Pin To Net: NetName=3.3V Pin=SC2-2
+Added Pin To Net: NetName=NetSC3_1 Pin=SC3-1
+Added Pin To Net: NetName=NetSC3_2 Pin=SC3-2
+Added Pin To Net: NetName=NetSC4_1 Pin=SC4-1
+Added Pin To Net: NetName=GND Pin=SC4-2
+Added Pin To Net: NetName=GND Pin=SC5-1
+Added Pin To Net: NetName=NetSC5_2 Pin=SC5-2
+Added Pin To Net: NetName=NetSC1_2 Pin=SU1-1
+Added Pin To Net: NetName=NetSC4_1 Pin=SU1-2
+Added Pin To Net: NetName=NetSC1_1 Pin=SU1-3
+Added Pin To Net: NetName=NetSC3_1 Pin=SU1-4
+Added Pin To Net: NetName=NetSC3_2 Pin=SU1-5
+Added Pin To Net: NetName=NetSC5_2 Pin=SU1-6
+Added Pin To Net: NetName=POS_RX Pin=SU1-7
+Added Pin To Net: NetName=NetAP1_6 Pin=SU1-10
+Added Pin To Net: NetName=GND Pin=SU1-15
+Added Pin To Net: NetName=3.3V Pin=SU1-16
+Added Pin To Net: NetName=3.3V Pin=U2-1
+Added Pin To Net: NetName=NetD4_1 Pin=U2-2
+Added Pin To Net: NetName=GND Pin=UA-1
+Added Pin To Net: NetName=NetMUX1_11 Pin=UA-2
+Added Pin To Net: NetName=NetMUX1_10 Pin=UA-3
+Added Pin To Net: NetName=NetAC2_1 Pin=UA-4
+Added Pin To Net: NetName=3.3V Pin=UA-5
+Added Pin To Net: NetName=NetMRQ4_1 Pin=UA-7
+Added Pin To Net: NetName=NetAP1_6 Pin=UA-8
+Added Pin To Net: NetName=NetUA_9 Pin=UA-9
+Added Pin To Net: NetName=NetMUX1_5 Pin=UA-10
+Added Pin To Net: NetName=NetMUX2_5 Pin=UA-11
+Added Pin To Net: NetName=NetMUX3_5 Pin=UA-12
+Added Pin To Net: NetName=NetMUX4_5 Pin=UA-13
+Added Pin To Net: NetName=NetMUX1_9 Pin=UA-14
+Added Pin To Net: NetName=GND Pin=UA-15
+Added Pin To Net: NetName=3.3V Pin=UA-16
+Added Pin To Net: NetName=NetMUX5_5 Pin=UA-17
+Added Pin To Net: NetName=NetMUX6_5 Pin=UA-18
+Added Pin To Net: NetName=NetAP1_1 Pin=UA-19
+Added Pin To Net: NetName=NetAP1_3 Pin=UA-20
+Added Member To Class: ClassName=Calcul8_SCH Member=Component AC2 Cap Semi
+Added Member To Class: ClassName=Calcul8_SCH Member=Component AP1 ARM CONNECTOR
+Added Member To Class: ClassName=Calcul8_SCH Member=Component AR3 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component C4 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component CB1 Cap Semi
+Added Member To Class: ClassName=Calcul8_SCH Member=Component CM1 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component CM2 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component CM3 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component CM5 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component CM6 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component D4 Value
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MRQ1 PMBT2222A
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MRQ2 PMBT2222A
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MRQ3 PMBT2222A
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MRQ4 2n7002
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MUX1 SN74HC151D
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MUX2 SN74HC151D
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MUX3 SN74HC151D
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MUX4 SN74HC151D
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MUX5 SN74HC151D
+Added Member To Class: ClassName=Calcul8_SCH Member=Component MUX6 SN74HC151D
+Added Member To Class: ClassName=Calcul8_SCH Member=Component P8 JUMPER
+Added Member To Class: ClassName=Calcul8_SCH Member=Component PC1
+Added Member To Class: ClassName=Calcul8_SCH Member=Component PC2 Cap Semi
+Added Member To Class: ClassName=Calcul8_SCH Member=Component PC4 PC1
+Added Member To Class: ClassName=Calcul8_SCH Member=Component PC5 Cap Semi
+Added Member To Class: ClassName=Calcul8_SCH Member=Component port lcdport
+Added Member To Class: ClassName=Calcul8_SCH Member=Component R1 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component R5 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component R6 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component R7 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component R8 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component R9 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component R10 Res3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component reg1 ams1117-3.3
+Added Member To Class: ClassName=Calcul8_SCH Member=Component reg2 ams1117-1.2
+Added Member To Class: ClassName=Calcul8_SCH Member=Component SC1 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component SC2 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component SC3 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component SC4 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component SC5 100nF
+Added Member To Class: ClassName=Calcul8_SCH Member=Component SU1 MAX3232ESE+
+Added Member To Class: ClassName=Calcul8_SCH Member=Component U2 CMT-8530S-SMT
+Added Member To Class: ClassName=Calcul8_SCH Member=Component UA STM32F030F4P6
+Added Room: Name=Calcul8_SCH
