@@ -1,0 +1,28 @@
+--cpu Cortex-M0
+"calculate_stm32f030f\startup_stm32f030x6.o"
+"calculate_stm32f030f\system_stm32f0xx.o"
+"calculate_stm32f030f\stm32f0xx_hal_rcc.o"
+"calculate_stm32f030f\stm32f0xx_hal_rcc_ex.o"
+"calculate_stm32f030f\stm32f0xx_hal_i2c_ex.o"
+"calculate_stm32f030f\stm32f0xx_hal_dma.o"
+"calculate_stm32f030f\stm32f0xx_hal.o"
+"calculate_stm32f030f\stm32f0xx_hal_pwr.o"
+"calculate_stm32f030f\stm32f0xx_hal_flash_ex.o"
+"calculate_stm32f030f\stm32f0xx_hal_uart.o"
+"calculate_stm32f030f\stm32f0xx_hal_uart_ex.o"
+"calculate_stm32f030f\stm32f0xx_hal_i2c.o"
+"calculate_stm32f030f\stm32f0xx_hal_tim_ex.o"
+"calculate_stm32f030f\stm32f0xx_hal_cortex.o"
+"calculate_stm32f030f\stm32f0xx_hal_gpio.o"
+"calculate_stm32f030f\stm32f0xx_hal_flash.o"
+"calculate_stm32f030f\stm32f0xx_hal_iwdg.o"
+"calculate_stm32f030f\stm32f0xx_hal_pwr_ex.o"
+"calculate_stm32f030f\stm32f0xx_hal_tim.o"
+"calculate_stm32f030f\main.o"
+"calculate_stm32f030f\stm32f0xx_it.o"
+"calculate_stm32f030f\stm32f0xx_hal_msp.o"
+--library_type=microlib --strict --scatter "calculate_stm32f030f\calculate_stm32f030f.sct"
+
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "calculate_stm32f030f.map" -o calculate_stm32f030f\calculate_stm32f030f.axf
